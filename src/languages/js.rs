@@ -1,12 +1,14 @@
-use std::fs;
+use std::process::Command;
 use anyhow::Error;
 
 pub fn update_version(version: String) -> Result<(), Error> {
-    let file_path = "package.json";
-    let data = fs::read_to_string(file_path)?;
-    let updated_data = regex::Regex::new(r#""version": "\d+\.\d+\.\d+""#)?
-        .replace(&data, format!(r#""version": "{}""#, version))
-        .to_string();
-    fs::write(file_path, updated_data)?;
+    let output = Command::new("npm")
+        .args(["version", &version, "--no-git-tag-version"])
+        .output()?;
+
+    if !output.status.success() {
+        return Err(Error::msg(String::from_utf8_lossy(&output.stderr)));
+    }
+
     Ok(())
 }

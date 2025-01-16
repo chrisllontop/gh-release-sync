@@ -26,11 +26,11 @@ fn process_version_update(lang: String) -> Result<()> {
 
 fn get_release_version() -> Result<String> {
     let tag = env::var("GITHUB_REF_NAME")?;
-    let re = Regex::new(r"^v(\d+\.\d+\.\d+)$").unwrap();
+    let re = Regex::new(r"^v(\d+\.\d+\.\d+(?:-[a-zA-Z0-9.]+)?)$").unwrap();
     if let Some(caps) = re.captures(&tag) {
         Ok(caps[1].to_string())
     } else {
-        Err(anyhow!("Tag format is invalid"))
+        Err(anyhow!("Tag format is invalid. Expected format: v1.0.0 or v1.0.0-beta1"))
     }
 }
 
