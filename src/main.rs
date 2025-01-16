@@ -1,9 +1,9 @@
 mod languages;
 
-use serde::Deserialize;
-use std::{env};
+use anyhow::{anyhow, Result};
 use regex::Regex;
-use anyhow::{Result, anyhow};
+use serde::Deserialize;
+use std::env;
 
 #[derive(Debug, Deserialize)]
 struct ActionInput {
@@ -30,7 +30,8 @@ fn get_release_version() -> Result<String> {
     if let Some(caps) = re.captures(&tag) {
         Ok(caps[1].to_string())
     } else {
-        Err(anyhow!("Tag format is invalid. Expected format: v1.0.0 or v1.0.0-beta1"))
+        Err(anyhow!(
+            "Tag format is invalid. Expected format: v1.0.0 or v1.0.0-beta1"
+        ))
     }
 }
-
