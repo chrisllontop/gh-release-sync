@@ -1,5 +1,5 @@
-use std::process::Command;
 use anyhow::Error;
+use std::process::Command;
 
 pub fn update_version(version: String) -> Result<(), Error> {
     let output = Command::new("npm")
