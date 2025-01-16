@@ -1,0 +1,21 @@
+{
+  "name": "gh-release-sync",
+  "version": "1.1.0",
+  "description": "GitHub Release Synchronization Tool",
+  "main": "./src/index.js",
+  "author": {
+    "name": "Christian Llontop",
+    "email": "me@chrisllontop.com"
+  },
+  "scripts": {
+    "test": "echo 'No tests available'"
+  },
+  "keywords": [
+    "github",
+    "release",
+    "sync"
+  ],
+  "dependencies": {},
+  "license": "MIT",
+  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+}
