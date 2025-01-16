@@ -7,7 +7,7 @@ pub fn update_version(version: String) -> Result<(), Error> {
         .output()?;
 
     if !output.status.success() {
-        return Err(Error::msg(String::from_utf8_lossy(&output.stderr)));
+        return Err(Error::msg(String::from_utf8_lossy(&output.stderr).to_string()));
     }
 
     Ok(())
