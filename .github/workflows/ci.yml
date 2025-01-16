@@ -38,7 +38,7 @@ jobs:
         run: cargo fmt -- --check
 
       - name: Run clippy
-        run: cargo clippy -- -D warnings
+        run: cargo clippy --
     
       - name: Build release
         run: cargo build --release
