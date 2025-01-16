@@ -1,5 +1,5 @@
 [package]
-name = "gh_release_manager"
+name = "gh_release_sync"
 version = "1.0.3"
 edition = "2021"
 

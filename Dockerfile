@@ -11,4 +11,4 @@ COPY . .
 RUN cargo build --release
 
 # Ejecutar tu aplicación
-CMD ["/usr/src/myapp/target/release/gh_release_manager"]
+CMD ["/usr/src/myapp/target/release/gh_release_sync"]
